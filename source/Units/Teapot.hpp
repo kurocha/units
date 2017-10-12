@@ -1,0 +1,4 @@
+
+namespace Units {
+	void sing();
+}

@@ -34,7 +34,7 @@ namespace Units
 				
 				buffer << Bytes{512*512*512};
 				
-				examiner.expect(buffer.str()) == "128.00MB";
+				examiner.expect(buffer.str()) == "128MB";
 			}
 		},
 		
@@ -44,7 +44,7 @@ namespace Units
 				
 				buffer << Bytes{512*512*512+512*1024};
 				
-				examiner.expect(buffer.str()) == "128.50MB";
+				examiner.expect(buffer.str()) == "128.5MB";
 			}
 		},
 	};

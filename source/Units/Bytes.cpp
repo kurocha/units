@@ -9,7 +9,6 @@
 #include "Bytes.hpp"
 
 #include <iostream>
-#include <iomanip>
 
 namespace Units
 {
@@ -27,9 +26,9 @@ namespace Units
 			if (scale == sizeof(suffix)) break;
 		}
 		
-		auto precision = output.precision();
+		auto precision = output.precision(4);
 		
-		output << std::setprecision(scale) << amount << suffix[scale];
+		output << amount << suffix[scale];
 		
 		output.precision(precision);
 		

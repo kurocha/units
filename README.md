@@ -1,10 +1,6 @@
 # Units
 
-Units is a fantastic project with lots of potential.
-
-For examples and documentation please see the main [project page][1].
-
-[1]: http://teapot.nz/
+Helpers for formatting units, e.g. bytes.
 
 [![Build Status](https://travis-ci.org/kurocha/units.svg?branch=master)](https://travis-ci.org/kurocha/units)
 
@@ -33,9 +29,15 @@ Run the tests to confirm basic functionality:
 
 ## Usage
 
-You can run the tool by executing the following:
+### Formatting Bytes
 
-	$ teapot Run/Units
+	#include <Units/Bytes.hpp>
+	
+	std::cerr << Units::Bytes{512};
+	// "512B"
+	
+	std::cerr << Units::Bytes{1024*1024};
+	// "1MB"
 
 ## Contributing
 

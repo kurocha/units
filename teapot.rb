@@ -49,36 +49,12 @@ define_target 'units-test' do |target|
 		run tests: 'Units', source_files: test_root.glob('Units/**/*.cpp'), arguments: arguments
 	end
 	
+	target.depends 'Language/C++14', private: true
+	
 	target.depends 'Library/UnitTest'
 	target.depends 'Library/Units'
 	
 	target.provides 'Test/Units'
-end
-
-define_target 'units-executable' do |target|
-	target.build do
-		source_root = target.package.path + 'source'
-		
-		build executable: 'Units', source_files: source_root.glob('Units.cpp')
-	end
-	
-	target.depends 'Build/Files'
-	target.depends 'Build/Clang'
-	
-	target.depends :platform
-	target.depends 'Language/C++14', private: true
-	
-	target.depends 'Library/Units'
-	target.provides 'Executable/Units'
-end
-
-define_target 'units-run' do |target|
-	target.build do |*arguments|
-		run executable: 'Units', arguments: arguments
-	end
-	
-	target.depends 'Executable/Units'
-	target.provides 'Run/Units'
 end
 
 # Configurations

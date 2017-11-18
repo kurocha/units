@@ -19,7 +19,7 @@ namespace Units
 		
 		double amount = bytes.value;
 		
-		while (amount > 1024) {
+		while (amount >= 1024) {
 			amount /= 1024;
 			scale += 1;
 			

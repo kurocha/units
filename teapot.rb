@@ -23,7 +23,7 @@ end
 # Build Targets
 
 define_target 'units-library' do |target|
-	target.depends 'Language/C++14', private: true
+	target.depends 'Language/C++14'
 	
 	target.provides 'Library/Units' do
 		source_root = target.package.path + 'source'
@@ -36,15 +36,15 @@ define_target 'units-library' do |target|
 end
 
 define_target 'units-test' do |target|
-	target.depends 'Language/C++14', private: true
-	
 	target.depends 'Library/UnitTest'
+	target.depends 'Language/C++14'
+	
 	target.depends 'Library/Units'
 	
 	target.provides 'Test/Units' do |*arguments|
 		test_root = target.package.path + 'test'
 		
-		run tests: 'Units', source_files: test_root.glob('Units/**/*.cpp'), arguments: arguments
+		run source_files: test_root.glob('Units/**/*.cpp'), arguments: arguments
 	end
 end
 
